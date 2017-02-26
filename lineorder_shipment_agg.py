@@ -25,9 +25,9 @@ lineorders = parts.map(lambda p: Row(col1=p[0], col2=p[1],col3=p[2], \
                                         col14=p[13],col15=p[14],col16=p[15],col17=p[16]))
 
 # Infer the schema, and register the DataFrame as a table.
-slackMessagesDF = spark.createDataFrame(lineorders)
+lineordersDF = spark.createDataFrame(lineorders)
 
-resultDF=slackMessagesDF.groupBy("col17").count()
+resultDF=lineordersDF.groupBy("col17").count()
 
 resultDF.show()
 
